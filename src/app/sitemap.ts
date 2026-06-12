@@ -1,6 +1,17 @@
 import { MetadataRoute } from "next";
 
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://sandaltreebysk.com";
+// Never fall back to localhost — always use the real production domain.
+// If NEXT_PUBLIC_SITE_URL is set but still points to localhost (e.g. during
+// a Vercel build where the env var was misconfigured), override it.
+function getSiteUrl(): string {
+  const env = process.env.NEXT_PUBLIC_SITE_URL || "";
+  if (env && !env.includes("localhost") && env.startsWith("https://")) {
+    return env.replace(/\/$/, ""); // strip trailing slash
+  }
+  return "https://sandaltreebysk.com";
+}
+
+const siteUrl = getSiteUrl();
 
 export default function sitemap(): MetadataRoute.Sitemap {
   return [

@@ -1,6 +1,14 @@
 import { MetadataRoute } from "next";
 
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://sandaltreebysk.com";
+function getSiteUrl(): string {
+  const env = process.env.NEXT_PUBLIC_SITE_URL || "";
+  if (env && !env.includes("localhost") && env.startsWith("https://")) {
+    return env.replace(/\/$/, "");
+  }
+  return "https://sandaltreebysk.com";
+}
+
+const siteUrl = getSiteUrl();
 
 export default function robots(): MetadataRoute.Robots {
   return {
@@ -12,5 +20,6 @@ export default function robots(): MetadataRoute.Robots {
       },
     ],
     sitemap: `${siteUrl}/sitemap.xml`,
+    host: siteUrl,
   };
 }
