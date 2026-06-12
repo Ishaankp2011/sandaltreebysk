@@ -111,7 +111,7 @@ export function Footer() {
                   aria-label="Call us"
                 >
                   <Phone size={14} className="mt-0.5 shrink-0 text-primary" aria-hidden />
-                  +91 XXXXX XXXXX
+                  +91 9810017630
                 </a>
               </li>
               <li>
@@ -121,7 +121,7 @@ export function Footer() {
                   aria-label="Email us"
                 >
                   <Mail size={14} className="mt-0.5 shrink-0 text-primary" aria-hidden />
-                  <span className="break-all">info@sandaltreebysk.com</span>
+                  <span className="break-all">kapoorent1@gmail.com</span>
                 </a>
               </li>
               <li>
