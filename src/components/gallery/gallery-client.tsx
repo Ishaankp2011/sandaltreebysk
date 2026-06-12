@@ -229,8 +229,8 @@ export function GalleryClient({ images }: GalleryClientProps) {
               // Stop click-on-image from closing lightbox
               onClick={(e) => e.stopPropagation()}
               style={{
-                // Safe padding so image doesn't go behind buttons
-                padding: "60px 64px 48px",
+                // Responsive safe padding — smaller on mobile
+                padding: "clamp(48px, 8vw, 72px) clamp(48px, 8vw, 80px) clamp(40px, 6vw, 56px)",
               }}
             >
               <Image

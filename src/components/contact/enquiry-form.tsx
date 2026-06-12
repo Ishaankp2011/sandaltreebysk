@@ -91,7 +91,7 @@ export function EnquiryForm() {
       noValidate
       aria-label="Event booking enquiry form"
     >
-      <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-6">
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-5">
         {/* Full Name */}
         <div className="space-y-2">
           <Label htmlFor="name">Full Name *</Label>

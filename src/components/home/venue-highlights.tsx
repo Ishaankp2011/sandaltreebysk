@@ -74,7 +74,7 @@ export function VenueHighlights() {
                 delay: i * 0.09,
                 ease: [0.22, 1, 0.36, 1],
               }}
-              className="group card-luxury p-8 cursor-default"
+              className="group card-luxury p-5 md:p-8 cursor-default"
             >
               <div className="flex items-start gap-5">
                 <motion.div

@@ -93,7 +93,7 @@ export function AdminInstagram({ initialPosts }: AdminInstagramProps) {
   };
 
   const toggleActive = async (post: InstagramPost & { active?: boolean }) => {
-    const newActive = !(post as { active?: boolean }).active ?? false;
+    const newActive = !((post as { active?: boolean }).active);
     const { error } = await supabase
       .from("instagram_posts")
       .update({ active: newActive })

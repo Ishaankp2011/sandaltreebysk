@@ -86,7 +86,7 @@ export default async function ContactPage() {
       {/* Content */}
       <section className="pb-20 md:pb-32" aria-label="Contact form and details">
         <div className="container-luxury">
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-12 lg:gap-16">
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-10 lg:gap-16">
             {/* Contact Details */}
             <aside aria-label="Contact information">
               <h2 className="font-serif text-2xl font-light mb-8">

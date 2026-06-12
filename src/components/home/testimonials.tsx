@@ -70,7 +70,7 @@ export function Testimonials({ testimonials = fallbackTestimonials }: Testimonia
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: i * 0.1 }}
-              className="bg-white/5 border border-white/10 p-8 relative group hover:bg-white/8 transition-colors duration-500"
+              className="bg-white/5 border border-white/10 p-5 md:p-8 relative group hover:bg-white/8 transition-colors duration-500"
             >
               <Quote
                 size={32}

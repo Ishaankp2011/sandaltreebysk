@@ -94,7 +94,7 @@ export default function AboutPage() {
       <section className="py-20" aria-labelledby="stats-heading">
         <div className="container-luxury">
           <h2 id="stats-heading" className="sr-only">Our achievements</h2>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-4">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-4">
             {stats.map((stat) => (
               <div key={stat.label} className="text-center group">
                 <p className="font-serif text-4xl md:text-5xl lg:text-6xl text-primary font-light mb-3 transition-transform duration-300 group-hover:scale-105">

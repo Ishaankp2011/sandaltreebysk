@@ -153,7 +153,7 @@ export default function ServicesPage() {
             <article
               key={service.id}
               id={service.id}
-              className={`grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center ${
+              className={`grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-20 items-center ${
                 i % 2 !== 0 ? "lg:grid-flow-col-dense" : ""
               }`}
               aria-labelledby={`service-${service.id}-heading`}

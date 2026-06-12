@@ -121,7 +121,7 @@ export function Footer() {
                   aria-label="Email us"
                 >
                   <Mail size={14} className="mt-0.5 shrink-0 text-primary" aria-hidden />
-                  info@sandaltreebysk.com
+                  <span className="break-all">info@sandaltreebysk.com</span>
                 </a>
               </li>
               <li>
