@@ -22,6 +22,11 @@ const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://sandaltreebysk.com"
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
+  icons: {
+    icon: "/favicon.jpg",
+    shortcut: "/favicon.jpg",
+    apple: "/favicon.jpg",
+  },
   title: {
     default: "Sandal Tree by SK — Luxury Banquet Hall & Event Venue",
     template: "%s | Sandal Tree by SK",

@@ -6,7 +6,7 @@ export const metadata: Metadata = {
   title: "Testimonials — Admin",
 };
 
-export const revalidate = 0;
+export const dynamic = "force-dynamic";
 
 export default async function AdminTestimonialsPage() {
   let testimonials = [];

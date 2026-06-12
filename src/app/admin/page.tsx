@@ -4,6 +4,8 @@ import { MessageSquare, Images, Star, Globe, ArrowRight, Clock } from "lucide-re
 import { formatDateTime } from "@/lib/utils";
 import Link from "next/link";
 
+export const dynamic = "force-dynamic";
+
 export const metadata: Metadata = {
   title: "Admin Dashboard — Sandal Tree by SK",
 };

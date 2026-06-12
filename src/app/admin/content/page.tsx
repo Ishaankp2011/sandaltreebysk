@@ -6,7 +6,7 @@ export const metadata: Metadata = {
   title: "Content — Admin",
 };
 
-export const revalidate = 0;
+export const dynamic = "force-dynamic";
 
 export default async function AdminContentPage() {
   let content: Record<string, unknown> = {};

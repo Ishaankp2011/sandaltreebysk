@@ -3,7 +3,7 @@ import { createClient } from "@/lib/supabase/server";
 import { AdminInstagram } from "@/components/admin/admin-instagram";
 
 export const metadata: Metadata = { title: "Instagram Posts — Admin" };
-export const revalidate = 0;
+export const dynamic = "force-dynamic";
 
 export default async function AdminInstagramPage() {
   let posts = [];
