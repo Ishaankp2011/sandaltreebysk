@@ -3,10 +3,37 @@ import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight, Check } from "lucide-react";
 
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://sandaltreebysk.com";
+
 export const metadata: Metadata = {
-  title: "Services",
+  title: "Services — Weddings, Receptions, Corporate Events & More",
   description:
-    "Explore our premium event services at Sandal Tree by SK — weddings, receptions, engagements, corporate events, birthdays, and more.",
+    "Explore every service at Sandal Tree by SK — grand weddings, reception parties, engagement ceremonies, corporate functions, birthday celebrations, anniversaries, and fully customised events in Delhi NCR.",
+  keywords: [
+    "wedding venue services Delhi",
+    "reception hall services",
+    "engagement ceremony venue Delhi NCR",
+    "corporate event hall Delhi",
+    "birthday party hall booking",
+    "anniversary celebration venue",
+    "luxury event services",
+    "banquet hall packages",
+    "customised event planning Delhi",
+  ],
+  alternates: { canonical: `${siteUrl}/services` },
+  openGraph: {
+    title: "Event Services at Sandal Tree by SK — Weddings, Receptions & More",
+    description:
+      "From grand weddings to intimate engagements and corporate functions — explore all event services at Sandal Tree by SK, Delhi NCR's premier luxury banquet hall.",
+    url: `${siteUrl}/services`,
+    images: [{ url: "/og-image.jpg", width: 1200, height: 630, alt: "Event Services at Sandal Tree by SK" }],
+  },
+  twitter: {
+    title: "Event Services at Sandal Tree by SK",
+    description:
+      "Weddings, receptions, engagements, corporate events & more — all at Delhi NCR's premier luxury banquet hall.",
+    images: ["/og-image.jpg"],
+  },
 };
 
 const services = [
@@ -125,8 +152,37 @@ const services = [
 ];
 
 export default function ServicesPage() {
+  const breadcrumbJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "Home", item: siteUrl },
+      { "@type": "ListItem", position: 2, name: "Services", item: `${siteUrl}/services` },
+    ],
+  };
+
+  const serviceListJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    name: "Event Services at Sandal Tree by SK",
+    itemListElement: services.map((s, i) => ({
+      "@type": "ListItem",
+      position: i + 1,
+      name: s.title,
+      url: `${siteUrl}/services#${s.id}`,
+    })),
+  };
+
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceListJsonLd) }}
+      />
       {/* Page Hero */}
       <section className="relative pt-32 pb-20 md:pt-44 md:pb-28" aria-labelledby="services-page-heading">
         <div className="container-luxury">

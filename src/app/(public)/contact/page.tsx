@@ -3,10 +3,35 @@ import { MapPin, Phone, Mail, Instagram, Clock } from "lucide-react";
 import { EnquiryForm } from "@/components/contact/enquiry-form";
 import { getSiteContent } from "@/lib/get-content";
 
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://sandaltreebysk.com";
+
 export const metadata: Metadata = {
-  title: "Contact & Booking",
+  title: "Contact & Book Your Event",
   description:
-    "Get in touch with Sandal Tree by SK to book your event or enquire about our luxury banquet hall services.",
+    "Contact Sandal Tree by SK to book your wedding, reception, engagement, corporate event, or celebration. Our team responds within 24 hours. Call, email, or fill the enquiry form.",
+  keywords: [
+    "book banquet hall Delhi",
+    "contact Sandal Tree by SK",
+    "wedding venue booking Delhi NCR",
+    "banquet hall enquiry",
+    "event booking form",
+    "luxury venue contact",
+    "wedding hall phone number",
+  ],
+  alternates: { canonical: `${siteUrl}/contact` },
+  openGraph: {
+    title: "Book Your Event at Sandal Tree by SK",
+    description:
+      "Ready to plan your dream event? Contact Sandal Tree by SK — Delhi NCR's luxury banquet hall. Fill the enquiry form and we'll respond within 24 hours.",
+    url: `${siteUrl}/contact`,
+    images: [{ url: "/og-image.jpg", width: 1200, height: 630, alt: "Contact Sandal Tree by SK" }],
+  },
+  twitter: {
+    title: "Book Your Event at Sandal Tree by SK",
+    description:
+      "Contact Delhi NCR's premier luxury banquet hall to book your wedding, reception, or event. We respond within 24 hours.",
+    images: ["/og-image.jpg"],
+  },
 };
 
 export const revalidate = 300;
@@ -61,6 +86,19 @@ export default async function ContactPage() {
 
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "BreadcrumbList",
+            itemListElement: [
+              { "@type": "ListItem", position: 1, name: "Home", item: siteUrl },
+              { "@type": "ListItem", position: 2, name: "Contact", item: `${siteUrl}/contact` },
+            ],
+          }),
+        }}
+      />
       {/* Page Hero */}
       <section
         className="relative pt-32 pb-16 md:pt-44 md:pb-20"

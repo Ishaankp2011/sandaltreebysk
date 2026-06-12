@@ -1,8 +1,13 @@
 import { Metadata } from "next";
 
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://sandaltreebysk.com";
+
 export const metadata: Metadata = {
   title: "Privacy Policy",
-  description: "Privacy Policy for Sandal Tree by SK — how we collect, use, and protect your information.",
+  description:
+    "Privacy Policy for Sandal Tree by SK — how we collect, use, and protect your personal information when you enquire about or book our luxury banquet hall.",
+  alternates: { canonical: `${siteUrl}/privacy-policy` },
+  robots: { index: true, follow: false },
 };
 
 export default function PrivacyPolicyPage() {

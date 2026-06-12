@@ -3,10 +3,34 @@ import { GalleryClient } from "@/components/gallery/gallery-client";
 import { createClient } from "@/lib/supabase/server";
 import { GalleryImage } from "@/lib/types";
 
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://sandaltreebysk.com";
+
 export const metadata: Metadata = {
-  title: "Gallery",
+  title: "Gallery — Weddings, Receptions & Events",
   description:
-    "Explore our luxury event gallery — stunning weddings, receptions, engagements, and celebrations at Sandal Tree by SK.",
+    "Browse the Sandal Tree by SK photo gallery — stunning weddings, reception nights, engagement ceremonies, and grand celebrations captured at Delhi NCR's premier luxury banquet hall.",
+  keywords: [
+    "banquet hall gallery",
+    "wedding venue photos Delhi",
+    "luxury reception images",
+    "Sandal Tree by SK gallery",
+    "event venue photos Delhi NCR",
+    "wedding hall interior photos",
+  ],
+  alternates: { canonical: `${siteUrl}/gallery` },
+  openGraph: {
+    title: "Gallery — Sandal Tree by SK Weddings & Events",
+    description:
+      "Explore breathtaking photographs from weddings, receptions, and celebrations at Sandal Tree by SK — Delhi NCR's premier luxury banquet hall.",
+    url: `${siteUrl}/gallery`,
+    images: [{ url: "/og-image.jpg", width: 1200, height: 630, alt: "Sandal Tree by SK Event Gallery" }],
+  },
+  twitter: {
+    title: "Gallery — Sandal Tree by SK Weddings & Events",
+    description:
+      "Breathtaking photographs from weddings, receptions, and celebrations at Delhi NCR's premier luxury banquet hall.",
+    images: ["/og-image.jpg"],
+  },
 };
 
 export const revalidate = 3600;

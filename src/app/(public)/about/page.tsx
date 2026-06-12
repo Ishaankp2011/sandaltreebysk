@@ -3,10 +3,33 @@ import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://sandaltreebysk.com";
+
 export const metadata: Metadata = {
-  title: "About Us",
+  title: "About Us — Our Story & Vision",
   description:
-    "Discover the story behind Sandal Tree by SK — a luxury banquet hall built on a passion for creating unforgettable celebrations.",
+    "Learn the story behind Sandal Tree by SK — a luxury banquet hall founded on a passion for crafting extraordinary celebrations. 500+ events, 1000+ guest capacity, 10+ years of excellence.",
+  keywords: [
+    "about Sandal Tree by SK",
+    "luxury banquet hall story",
+    "wedding venue Delhi NCR",
+    "event venue founders",
+    "SK banquet hall history",
+  ],
+  alternates: { canonical: `${siteUrl}/about` },
+  openGraph: {
+    title: "About Sandal Tree by SK — Our Story & Vision",
+    description:
+      "Discover the passion behind Sandal Tree by SK. Over 500 events hosted, 1000+ guest capacity, and a decade of creating unforgettable celebrations in Delhi NCR.",
+    url: `${siteUrl}/about`,
+    images: [{ url: "/og-image.jpg", width: 1200, height: 630, alt: "Sandal Tree by SK Banquet Hall Interior" }],
+  },
+  twitter: {
+    title: "About Sandal Tree by SK — Our Story & Vision",
+    description:
+      "500+ events hosted, 1000+ guest capacity, 10+ years of excellence. Discover the story behind Delhi NCR's premier luxury banquet hall.",
+    images: ["/og-image.jpg"],
+  },
 };
 
 const stats = [

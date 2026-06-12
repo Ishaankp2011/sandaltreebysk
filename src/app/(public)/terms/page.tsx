@@ -1,8 +1,13 @@
 import { Metadata } from "next";
 
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://sandaltreebysk.com";
+
 export const metadata: Metadata = {
   title: "Terms & Conditions",
-  description: "Terms and Conditions for Sandal Tree by SK event venue bookings.",
+  description:
+    "Terms and Conditions for booking and using the services of Sandal Tree by SK luxury banquet hall.",
+  alternates: { canonical: `${siteUrl}/terms` },
+  robots: { index: true, follow: false },
 };
 
 export default function TermsPage() {
