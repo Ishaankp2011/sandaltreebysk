@@ -39,9 +39,9 @@ export const revalidate = 300;
 export default async function ContactPage() {
   const contactContent = await getSiteContent("contact");
 
-  const phone = contactContent.phone || "+91 XXXXX XXXXX";
-  const email = contactContent.email || "info@sandaltreebysk.com";
-  const hours = contactContent.hours || "Mon–Sun: 9 AM – 9 PM";
+  const phone = contactContent.phone || "+91 9810017630";
+  const email = contactContent.email || "kapoorent1@gmail.com";
+  const hours = contactContent.hours || "Mon–Sun: 9 AM – 12 AM";
   const instagram = contactContent.instagram || "@sandaltreebysk";
   const mapsUrl =
     contactContent.maps_url || "https://maps.app.goo.gl/igwQWRRDBFBV8LFb6";
