@@ -1,0 +1,261 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@theme inline {
+  --color-background: hsl(var(--background));
+  --color-foreground: hsl(var(--foreground));
+  --color-card: hsl(var(--card));
+  --color-card-foreground: hsl(var(--card-foreground));
+  --color-popover: hsl(var(--popover));
+  --color-popover-foreground: hsl(var(--popover-foreground));
+  --color-primary: hsl(var(--primary));
+  --color-primary-foreground: hsl(var(--primary-foreground));
+  --color-secondary: hsl(var(--secondary));
+  --color-secondary-foreground: hsl(var(--secondary-foreground));
+  --color-muted: hsl(var(--muted));
+  --color-muted-foreground: hsl(var(--muted-foreground));
+  --color-accent: hsl(var(--accent));
+  --color-accent-foreground: hsl(var(--accent-foreground));
+  --color-destructive: hsl(var(--destructive));
+  --color-destructive-foreground: hsl(var(--destructive-foreground));
+  --color-border: hsl(var(--border));
+  --color-input: hsl(var(--input));
+  --color-ring: hsl(var(--ring));
+  
+  --font-sans: 'Inter', sans-serif;
+  --font-serif: 'Playfair Display', serif;
+  
+  --radius: 0.5rem;
+}
+
+:root {
+  /* Modern Luxury Palette */
+  /* Background: A very subtle, warm off-white "Silk" */
+  --background: 40 20% 98%;
+  
+  /* Foreground: Deep, rich charcoal, almost black but warmer */
+  --foreground: 160 6% 10%;
+  
+  /* Card: Pure white for contrast against the warm background */
+  --card: 0 0% 100%;
+  --card-foreground: 160 6% 10%;
+  
+  --popover: 0 0% 100%;
+  --popover-foreground: 160 6% 10%;
+  
+  /* Primary: Deep Japanese Forest Green */
+  /* Was 100 40% 40% -> Now deeper and richer */
+  --primary: 155 35% 22%;
+  --primary-foreground: 0 0% 100%;
+  
+  /* Secondary: A soft sage/matcha latte color */
+  --secondary: 140 20% 94%;
+  --secondary-foreground: 155 35% 22%;
+  
+  /* Muted: Cool grey for balance */
+  --muted: 210 10% 96%;
+  --muted-foreground: 210 5% 50%;
+  
+  /* Accent: A subtle gold/clay tone for highlights */
+  --accent: 35 30% 90%;
+  --accent-foreground: 35 40% 20%;
+  
+  --destructive: 0 84% 60%;
+  --destructive-foreground: 0 0% 98%;
+
+  --border: 210 10% 90%;
+  --input: 210 10% 90%;
+  --ring: 155 35% 22%;
+  
+  --radius: 0.75rem; /* Softer, modern corners */
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply font-sans antialiased bg-gradient-to-b from-background via-muted to-card text-foreground selection:bg-primary/20 selection:text-primary;
+    color-scheme: light;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-serif;
+  }
+}
+
+/* Modern Utilities */
+.glass-panel {
+  @apply bg-white/70 backdrop-blur-md border border-white/20 shadow-sm;
+}
+
+.text-balance {
+  text-wrap: balance;
+}
+
+.hover-lift {
+  @apply transition-transform duration-300 hover:-translate-y-1;
+}
+
+/* Layout helpers */
+.container {
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+/* Hero heading scaling and subtle glow */
+.hero-title {
+  font-weight: 600;
+  line-height: 0.95;
+  letter-spacing: -0.02em;
+  text-shadow: 0 8px 30px rgba(0,0,0,0.45);
+}
+
+/* Card styles for product tiles */
+.card-elevated {
+  @apply bg-card border border-border rounded-[var(--radius)] shadow-[0_8px_24px_rgba(6,10,10,0.08)] overflow-hidden;
+}
+
+/* Soft outline for interactive links */
+.focus-outline:focus {
+  box-shadow: 0 0 0 4px rgba(22, 103, 88, 0.12);
+  outline: none;
+}
+
+/* Custom scrollbar (WebKit + Firefox) */
+::-webkit-scrollbar {
+  width: 12px;
+  height: 12px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+  box-shadow: none;
+}
+::-webkit-scrollbar-thumb {
+  background: #5d692c;
+  border-radius: 999px;
+  border: 3px solid transparent;
+  background-clip: padding-box;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #556328;
+}
+
+/* Firefox */
+* {
+  scrollbar-width: thin;
+  /* thumb then track */
+  scrollbar-color: #5d692c transparent;
+}
+
+/* Smooth scrolling and small niceties */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Star button styles (from provided design) */
+.star-button {
+  position: relative;
+  padding: 12px 48px;
+  background: hsl(var(--primary));
+  font-size: 18px;
+  font-weight: 500;
+  color: hsl(var(--primary-foreground));
+  border: 3px solid hsl(var(--primary));
+  border-radius: 999px;
+  box-shadow: 0 10px 30px rgba(31,111,99,0.12);
+  transition: transform 0.35s cubic-bezier(.2,.9,.2,1), box-shadow 0.35s;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  overflow: visible;
+}
+
+.star-button .star-1,
+.star-button .star-2,
+.star-button .star-3,
+.star-button .star-4,
+.star-button .star-5,
+.star-button .star-6 {
+  position: absolute;
+  width: auto;
+  height: auto;
+  filter: drop-shadow(0 0 6px rgba(255,255,223,0.9));
+  z-index: 0;
+  opacity: 0.45;
+  transform-origin: center;
+  transition-property: transform, opacity, filter;
+  transition-duration: 700ms;
+  transition-timing-function: cubic-bezier(0.05, 0.83, 0.43, 0.96);
+  pointer-events: none;
+}
+.star-button .star-1 { top: 20%; left: 20%; width: 25px; }
+.star-button .star-2 { top: 45%; left: 45%; width: 15px; }
+.star-button .star-3 { top: 40%; left: 40%; width: 5px; }
+.tar-button .star-4 { top: 20%; left: 40%; width: 8px; }
+.star-button .star-5 { top: 25%; left: 45%; width: 15px; }
+.star-button .star-6 { top: 5%; left: 50%; width: 5px; }
+
+.star-button:hover {
+  background: transparent;
+  color: hsl(var(--primary));
+  box-shadow: 0 20px 50px rgba(31,111,99,0.14);
+  transform: translateY(-4px) scale(1.03);
+}
+.star-button:hover .star-1 { transform: translate(-140%, -200%) scale(1); opacity: 1; filter: drop-shadow(0 0 12px rgba(255,255,223,0.95)); }
+.star-button:hover .star-2 { transform: translate(-35%, -140%) scale(1); opacity: 1; filter: drop-shadow(0 0 12px rgba(255,255,223,0.95)); }
+.star-button:hover .star-3 { transform: translate(-15%, 40%) scale(1); opacity: 1; filter: drop-shadow(0 0 12px rgba(255,255,223,0.95)); }
+.star-button:hover .star-4 { transform: translate(100%, -20%) scale(1); opacity: 1; filter: drop-shadow(0 0 12px rgba(255,255,223,0.95)); }
+.star-button:hover .star-5 { transform: translate(140%, -10%) scale(1); opacity: 1; filter: drop-shadow(0 0 12px rgba(255,255,223,0.95)); }
+.star-button:hover .star-6 { transform: translate(20%, 0) scale(1); opacity: 1; filter: drop-shadow(0 0 12px rgba(255,255,223,0.95)); }
+
+.star-button .fil0 { fill: hsl(var(--accent-foreground)); }
+/* Luxury CTA tweaks for hero */
+.luxury-cta {
+  position: relative;
+  padding: 12px 48px;
+  border-radius: 999px;
+  overflow: visible;
+}
+.luxury-cta .sheen {
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  pointer-events: none;
+  background: radial-gradient(circle at 20% 30%, rgba(255,255,255,0.12), transparent 18%), linear-gradient(180deg, rgba(255,255,255,0.02), transparent);
+  opacity: 0;
+  transition: opacity 320ms ease;
+}
+.luxury-cta:hover .sheen { opacity: 0.85; }
+.luxury-cta:active { transform: translateY(1px) scale(0.995); }
+
+/* Ambient glow for luxury CTA */
+.luxury-cta {
+  --glow-color: rgba(31,111,99,0.16);
+  box-shadow: 0 8px 24px var(--glow-color);
+  transition: box-shadow 300ms ease, transform 220ms ease;
+}
+.luxury-cta::before {
+  content: "";
+  position: absolute;
+  inset: -6px;
+  border-radius: inherit;
+  background: radial-gradient(closest-side, rgba(31,111,99,0.10), transparent 60%);
+  filter: blur(14px);
+  opacity: 1;
+  pointer-events: none;
+  transition: opacity 320ms ease, transform 320ms ease;
+}
+.luxury-cta:hover {
+  transform: translateY(-4px) scale(1.02);
+  --glow-color: rgba(31,111,99,0.22);
+  box-shadow: 0 20px 60px var(--glow-color);
+}
+.luxury-cta:hover::before {
+  transform: scale(1.06);
+  opacity: 1;
+}
+

@@ -1,0 +1,227 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* ── Light theme ── */
+    --background: 40 33% 98%;
+    --foreground: 0 0% 13%;
+    --card: 40 20% 96%;
+    --card-foreground: 0 0% 13%;
+    --popover: 40 33% 98%;
+    --popover-foreground: 0 0% 13%;
+    --primary: 38 45% 55%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 40 20% 93%;
+    --secondary-foreground: 0 0% 20%;
+    --muted: 40 15% 92%;
+    --muted-foreground: 0 0% 45%;
+    --accent: 38 45% 55%;
+    --accent-foreground: 0 0% 100%;
+    --destructive: 0 72% 51%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 40 15% 88%;
+    --input: 40 15% 88%;
+    --ring: 38 45% 55%;
+    --radius: 0.5rem;
+    --chart-1: 38 45% 55%;
+    --chart-2: 0 0% 25%;
+    --chart-3: 40 20% 75%;
+    --chart-4: 38 30% 45%;
+    --chart-5: 0 0% 55%;
+  }
+
+  .dark {
+    /* ── Dark theme — neutral charcoal/grey, zero blue ── */
+    --background: 0 0% 11%;           /* #1c1c1c — true dark grey */
+    --foreground: 40 15% 90%;         /* warm off-white */
+    --card: 0 0% 15%;                 /* #262626 — slightly lighter panel */
+    --card-foreground: 40 15% 90%;
+    --popover: 0 0% 11%;
+    --popover-foreground: 40 15% 90%;
+    --primary: 38 42% 62%;            /* warm gold */
+    --primary-foreground: 0 0% 9%;
+    --secondary: 0 0% 19%;            /* #303030 */
+    --secondary-foreground: 40 12% 84%;
+    --muted: 0 0% 18%;
+    --muted-foreground: 0 0% 56%;
+    --accent: 38 42% 62%;
+    --accent-foreground: 0 0% 9%;
+    --destructive: 0 58% 48%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 0 0% 22%;               /* #383838 */
+    --input: 0 0% 22%;
+    --ring: 38 42% 62%;
+    --chart-1: 38 42% 62%;
+    --chart-2: 40 15% 70%;
+    --chart-3: 0 0% 44%;
+    --chart-4: 38 30% 52%;
+    --chart-5: 0 0% 60%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  html {
+    /* Native smooth scrolling */
+    scroll-behavior: smooth;
+    /* Slightly smoother on some browsers */
+    -webkit-overflow-scrolling: touch;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    /* Smooth theme transitions */
+    transition:
+      background-color 0.4s cubic-bezier(0.4, 0, 0.2, 1),
+      color 0.4s cubic-bezier(0.4, 0, 0.2, 1),
+      border-color 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-serif;
+  }
+
+  ::selection {
+    background: hsl(38 45% 55% / 0.25);
+    color: hsl(var(--foreground));
+  }
+}
+
+/* ── Smooth scroll offset for fixed navbar ── */
+[id] {
+  scroll-margin-top: 100px;
+}
+
+/* ── Custom scrollbar ── */
+::-webkit-scrollbar {
+  width: 5px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: hsl(var(--border));
+  border-radius: 99px;
+  transition: background 0.2s;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: hsl(var(--primary) / 0.7);
+}
+
+/* ── Focus styles ── */
+:focus-visible {
+  @apply outline-none ring-2 ring-ring ring-offset-2 ring-offset-background;
+}
+
+/* ────────────────────────────────────────────
+   UTILITY CLASSES
+──────────────────────────────────────────── */
+@layer utilities {
+  /* Layout */
+  .section-padding {
+    @apply py-20 md:py-28 lg:py-36;
+  }
+  .container-luxury {
+    @apply max-w-7xl mx-auto px-6 md:px-10 lg:px-16;
+  }
+
+  /* Typography */
+  .heading-display {
+    @apply font-serif text-4xl md:text-5xl lg:text-6xl xl:text-7xl tracking-tight leading-tight;
+  }
+  .heading-section {
+    @apply font-serif text-3xl md:text-4xl lg:text-5xl tracking-tight leading-tight;
+  }
+  .text-overline {
+    @apply text-xs font-sans uppercase tracking-[0.25em] text-primary font-medium;
+  }
+  .text-gold {
+    color: hsl(var(--primary));
+  }
+
+  /* Buttons */
+  .btn-primary {
+    @apply inline-flex items-center gap-2 px-8 py-3.5 bg-primary text-primary-foreground font-sans text-sm font-medium tracking-wider uppercase transition-all duration-300 hover:bg-primary/90 hover:scale-[1.02] active:scale-[0.98];
+  }
+  .btn-outline {
+    @apply inline-flex items-center gap-2 px-8 py-3.5 border border-current text-current font-sans text-sm font-medium tracking-wider uppercase transition-all duration-300 hover:bg-current hover:text-background hover:scale-[1.02] active:scale-[0.98];
+  }
+
+  /* Cards */
+  .card-luxury {
+    @apply bg-card border border-border transition-all duration-500 hover:shadow-xl hover:shadow-black/5 dark:hover:shadow-black/25;
+  }
+
+  /* Glass panel — used by floating navbar */
+  .glass-panel {
+    background: hsl(var(--background) / 0.75);
+    backdrop-filter: blur(20px) saturate(1.6);
+    -webkit-backdrop-filter: blur(20px) saturate(1.6);
+    border: 1px solid hsl(var(--border) / 0.6);
+  }
+
+  /* Divider */
+  .luxury-divider {
+    @apply flex items-center gap-4 my-8;
+  }
+  .luxury-divider::before,
+  .luxury-divider::after {
+    content: '';
+    @apply flex-1 h-px bg-border;
+  }
+
+  /* Image overlay helper */
+  .image-overlay::after {
+    content: '';
+    @apply absolute inset-0 bg-gradient-to-t from-black/60 via-black/10 to-transparent;
+  }
+
+  /* ── Scroll-reveal animation helpers ── */
+  .reveal-up {
+    opacity: 0;
+    transform: translateY(28px);
+    transition:
+      opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1),
+      transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+  .reveal-up.in-view {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ── Framer Motion page transition wrapper ── */
+.page-transition-wrapper {
+  will-change: opacity, transform;
+}
+
+/* ── Animated gradient for gold accents ── */
+@keyframes gold-shimmer {
+  0%   { background-position: -200% center; }
+  100% { background-position:  200% center; }
+}
+.gold-shimmer-text {
+  background: linear-gradient(
+    90deg,
+    hsl(var(--primary)),
+    hsl(38 60% 75%),
+    hsl(var(--primary))
+  );
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: gold-shimmer 4s linear infinite;
+}
+
+/* ── Top loader bar colour override ── */
+#nprogress .bar {
+  background: hsl(var(--primary)) !important;
+}
